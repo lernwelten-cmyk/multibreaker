@@ -8,10 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟢 M0 - Setup ✅ | 🔄 M1 - Ball-Physics |
-| **Gesamt-Fortschritt** | 10% (1/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟡 M1 - Ball-Physics (In Arbeit) |
+| **Gesamt-Fortschritt** | 20% (1.5/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
-| **Geschätzte Restzeit** | 4-7 Wochen |
+| **Geschätzte Restzeit** | 4-6 Wochen |
 | **Letzte Aktualisierung** | 2025-01-06 |
 
 ---
@@ -72,59 +72,63 @@
 
 **Ziel:** Ball-Bewegung & Reflexion funktionsfähig
 **Geschätzte Zeit:** 8-12 Stunden
-**Status:** 🔴 Nicht begonnen
+**Status:** 🟡 **IN ARBEIT** (2025-01-06)
 
-### Ball-Scene erstellen
+### Ball-Scene erstellen ✅
 
-- [ ] `scenes/entities/Ball.tscn` erstellen
-  - Root-Node: `CharacterBody2D`
-  - Child: `Sprite2D` (Ball-Grafik)
-  - Child: `CollisionShape2D` (Circle-Shape)
-- [ ] Ball-Sprite vorbereiten:
-  - [ ] Placeholder-Grafik erstellen (32x32 Pixel, weißer Kreis)
-  - [ ] In `assets/sprites/ball.png` speichern
-  - [ ] Sprite2D-Texture zuweisen
-- [ ] CollisionShape2D konfigurieren:
+- [x] ✅ `scenes/entities/Ball.tscn` erstellt
+  - Root-Node: `CharacterBody2D` (collision_layer: 2, collision_mask: 5)
+  - Child: `Sprite2D` mit Texture
+  - Child: `CollisionShape2D` (CircleShape2D, Radius: 16)
+- [x] ✅ Ball-Sprite vorbereitet:
+  - [x] ✅ Placeholder-Grafik erstellt (32x32 Pixel, weißer Kreis)
+  - [x] ✅ In `assets/sprites/ball.svg` gespeichert
+  - [x] ✅ Sprite2D-Texture zugewiesen
+- [x] ✅ CollisionShape2D konfiguriert:
   - Shape: CircleShape2D
   - Radius: 16 (passend zu 32x32 Sprite)
 
-### Ball-Script (Physics)
+### Ball-Script (Physics) ✅
 
-- [ ] `scripts/entities/Ball.gd` erstellen
-- [ ] Ball-Movement implementieren:
-  - [ ] `speed` Export-Variable (500.0)
-  - [ ] `velocity` initialisieren in `_ready()`
-  - [ ] `_physics_process()` mit `move_and_collide()`
-- [ ] Spiegelreflexion implementieren:
-  - [ ] Collision-Detection
-  - [ ] `velocity.bounce(normal)` bei Kollision
-- [ ] Out-of-Bounds Detection:
-  - [ ] Position-Check (Ball < 0 oder > Screen-Size)
-  - [ ] Signal `out_of_bounds` emittieren
-  - [ ] Ball entfernen (`queue_free()`)
+- [x] ✅ `scripts/entities/Ball.gd` erstellt (72 Zeilen)
+- [x] ✅ Ball-Movement implementiert:
+  - [x] ✅ `speed` Export-Variable (500.0)
+  - [x] ✅ `velocity` initialisiert in `_ready()`
+  - [x] ✅ `_physics_process()` mit `move_and_collide()`
+- [x] ✅ Spiegelreflexion implementiert:
+  - [x] ✅ Collision-Detection
+  - [x] ✅ `velocity.bounce(normal)` bei Kollision
+- [x] ✅ Out-of-Bounds Detection:
+  - [x] ✅ Position-Check (Ball < -50 oder > Screen-Size + 50)
+  - [x] ✅ Signal `out_of_bounds` emittieren
+  - [x] ✅ Ball entfernen (`queue_free()`)
 
-### Signals definieren
+### Signals definieren ✅
 
-- [ ] Signal `collided_with_brick(brick: Node2D)` erstellen
-- [ ] Signal `collided_with_wall` erstellen
-- [ ] Signal `out_of_bounds` erstellen
+- [x] ✅ Signal `collided_with_brick(brick: Node2D)` erstellt
+- [x] ✅ Signal `collided_with_wall` erstellt
+- [x] ✅ Signal `out_of_bounds` erstellt
 
-### Test-Scene erstellen
+### Test-Scene erstellen ✅
 
-- [ ] `scenes/test/BallTest.tscn` erstellen
+- [x] ✅ `scenes/test/BallTest.tscn` erstellt
   - Node2D (Root)
-  - Ball-Instance
+  - Ball-Instance (Center-Position)
   - 4 StaticBody2D als Wände (oben, unten, links, rechts)
-- [ ] Ball-Test durchführen:
+  - ColorRect für visuelle Wand-Darstellung
+  - Camera2D + Label mit Test-Instruktionen
+- [ ] Ball-Test durchführen (manuell in Godot Editor):
   - [ ] Ball bewegt sich konstant
   - [ ] Ball reflektiert an Wänden
   - [ ] Ball verlässt Screen → Signal wird emittiert
 
 **Akzeptanzkriterien:**
-- ✅ Ball bewegt sich smooth @ 60fps
-- ✅ Reflexion funktioniert korrekt (Einfallswinkel = Ausfallswinkel)
-- ✅ Out-of-Bounds wird erkannt
-- ✅ Signals werden korrekt emittiert
+- ⏸️ Ball bewegt sich smooth @ 60fps (Test ausstehend)
+- ⏸️ Reflexion funktioniert korrekt (Einfallswinkel = Ausfallswinkel) (Test ausstehend)
+- ⏸️ Out-of-Bounds wird erkannt (Test ausstehend)
+- ⏸️ Signals werden korrekt emittiert (Test ausstehend)
+
+**Nächster Schritt:** Manuelles Testen in Godot Editor mit BallTest.tscn
 
 ---
 
