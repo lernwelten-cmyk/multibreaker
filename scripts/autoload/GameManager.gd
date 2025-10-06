@@ -19,9 +19,11 @@ const LEVEL_PATH_TEMPLATE: String = "res://scenes/levels/Level%02d.tscn"
 signal score_changed(new_score: int)
 ## Emitted when attempts counter increases
 signal attempts_incremented(new_attempts: int)
-## Emitted when current level is completed
+## Emitted when current level is completed (used in M3+)
+@warning_ignore("unused_signal")
 signal level_completed
-## Emitted when game over condition is met
+## Emitted when game over condition is met (used in M4+)
+@warning_ignore("unused_signal")
 signal game_over
 ## Emitted when game status changes
 signal status_changed(new_status: String)
