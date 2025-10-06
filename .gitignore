@@ -1,0 +1,42 @@
+# Godot 4
+.godot/
+.import/
+export_presets.cfg
+*.translation
+
+# Mono (C# - not used, but safe to include)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Builds
+exports/
+*.exe
+*.pck
+*.zip
+*.dmg
+*.app
+*.apk
+*.x86_64
+
+# Temporary files
+*.tmp
+*~
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log

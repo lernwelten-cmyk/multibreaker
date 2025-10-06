@@ -1,0 +1,15 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="128" height="128" fill="#2a2d3a" rx="16"/>
+
+  <!-- Ball (Circle) -->
+  <circle cx="64" cy="48" r="16" fill="#ffffff"/>
+
+  <!-- Bricks -->
+  <rect x="20" y="80" width="24" height="12" fill="#ff6b6b" rx="2"/>
+  <rect x="48" y="80" width="24" height="12" fill="#4ecdc4" rx="2"/>
+  <rect x="76" y="80" width="24" height="12" fill="#ffe66d" rx="2"/>
+
+  <rect x="34" y="96" width="24" height="12" fill="#a8e6cf" rx="2"/>
+  <rect x="62" y="96" width="24" height="12" fill="#ff8b94" rx="2"/>
+</svg>
