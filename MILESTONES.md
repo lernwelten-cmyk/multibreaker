@@ -8,10 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟡 M4 - Game-Manager (In Arbeit) |
-| **Gesamt-Fortschritt** | 70% (3.5/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟢 M4 - Game-Manager ✅ | 🔜 M5 - UI-System |
+| **Gesamt-Fortschritt** | 80% (4/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
-| **Geschätzte Restzeit** | 1-2 Wochen |
+| **Geschätzte Restzeit** | 1 Woche |
 | **Letzte Aktualisierung** | 2025-01-06 |
 
 ---
@@ -280,7 +280,7 @@
 
 **Ziel:** Spiellogik orchestriert, Score-Tracking funktioniert
 **Geschätzte Zeit:** 10-14 Stunden
-**Status:** 🟡 **IN ARBEIT** (2025-01-06)
+**Status:** 🟢 **ABGESCHLOSSEN** (2025-01-06)
 
 **HINWEIS:** GameManager, AudioManager, ScoreManager, SaveLoad wurden bereits in M0 erstellt.
 M4 fokussiert sich auf Game-Scene-Integration und Core-Loop-Orchestration.
@@ -319,24 +319,24 @@ M4 fokussiert sich auf Game-Scene-Integration und Core-Loop-Orchestration.
 - [x] ✅ ScoreManager.gd (Highscore-Persistence)
 - [x] ✅ SaveLoad.gd (JSON-Serialization)
 
-### Test ausstehend
+### Test erfolgreich ✅
 
-- [ ] Game-Test durchführen (manuell in Godot Editor):
-  - [ ] Score-Tracking funktioniert
-  - [ ] Attempts-Counter funktioniert
-  - [ ] Level-Completion wird erkannt
-  - [ ] Highscore wird gespeichert
-  - [ ] HUD aktualisiert sich korrekt
+- [x] ✅ Game-Test durchgeführt (manuell in Godot Editor):
+  - [x] ✅ Score-Tracking funktioniert
+  - [x] ✅ Attempts-Counter funktioniert
+  - [x] ✅ Level-Completion wird erkannt
+  - [x] ✅ Highscore wird gespeichert
+  - [x] ✅ HUD aktualisiert sich korrekt
 
 **Akzeptanzkriterien:**
-- ⏸️ GameManager tracked Score & Attempts korrekt (Test ausstehend)
-- ⏸️ Brick-Destruction erhöht Score (Test ausstehend)
-- ⏸️ Level-Complete wird erkannt (alle Bricks zerstört, Test ausstehend)
-- ⏸️ HUD aktualisiert sich in Echtzeit (Test ausstehend)
-- ⏸️ Highscore wird lokal gespeichert (Test ausstehend)
+- ✅ GameManager tracked Score & Attempts korrekt
+- ✅ Brick-Destruction erhöht Score
+- ✅ Level-Complete wird erkannt (alle Bricks zerstört)
+- ✅ HUD aktualisiert sich in Echtzeit
+- ✅ Highscore wird lokal gespeichert
 
-**Status:** Game-Loop vollständig implementiert, manueller Test ausstehend
-**Nächster Schritt:** Manuelles Testen in Godot Editor mit Game.tscn
+**Status:** 🟢 Meilenstein 4 ABGESCHLOSSEN!
+**Nächster Schritt:** M5 - UI-System (Menüs, Pause, Game Over Screen)
 
 ---
 

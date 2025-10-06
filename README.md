@@ -21,15 +21,15 @@ Ein modernes Brick-Breaker-Spiel mit 50 Bällen, entwickelt mit Godot 4.4.
 
 ## ✨ Features
 
-### Phase 1 (MVP) - 🟡 In Entwicklung (70% fertig)
+### Phase 1 (MVP) - 🟡 In Entwicklung (80% fertig)
 - ✅ 50-Ball-Sequencing mit präzisem Timing (0.1s Delay, Timer-basiert)
 - ✅ Spiegelreflexions-Physik (Ball-Entity komplett)
 - ✅ Brick-Destruktion mit HP-System (1-3 HP, Visual-Feedback)
 - ✅ Launcher & Aiming-System (Mouse-gesteuert, -150° bis -30° Winkel)
-- 🟡 Versuchs-Zähler (Golf-Par-System, implementiert, Test ausstehend)
-- 🟡 Score-Tracking & Level-Completion (implementiert, Test ausstehend)
-- 🟡 Lokales Highscore-System (implementiert, Test ausstehend)
-- 🟡 Basic UI (HUD mit Score/Attempts/Level, implementiert)
+- ✅ Versuchs-Zähler (Golf-Par-System mit Real-time HUD)
+- ✅ Score-Tracking & Level-Completion (Auto-Detection)
+- ✅ Lokales Highscore-System (JSON-Persistierung)
+- ✅ Basic UI (HUD mit Score/Attempts/Level/Best)
 - ⏸️ 5 handgefertigte Levels
 
 ### Phase 2 (Planned)

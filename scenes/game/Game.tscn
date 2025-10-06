@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b9k3n7m2p5q8r"]
+[gd_scene load_steps=6 format=3 uid="uid://dw0qu8t2cr3ju"]
 
-[ext_resource type="Script" path="res://scripts/game/Game.gd" id="1_game_script"]
-[ext_resource type="PackedScene" uid="uid://c5n7m9k3p2q8r" path="res://scenes/entities/Launcher.tscn" id="2_launcher_scene"]
-[ext_resource type="PackedScene" uid="uid://d7w9x4k2n8m5q" path="res://scenes/entities/Brick.tscn" id="3_brick_scene"]
-[ext_resource type="PackedScene" uid="uid://c8n5k3m9p7q2r" path="res://scenes/ui/HUD.tscn" id="4_hud_scene"]
+[ext_resource type="Script" uid="uid://d07ede5cea6qt" path="res://scripts/game/Game.gd" id="1_game_script"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Launcher.tscn" id="2_launcher_scene"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Brick.tscn" id="3_brick_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_hud_scene"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
 size = Vector2(2000, 100)
