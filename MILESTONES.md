@@ -117,18 +117,19 @@
   - 4 StaticBody2D als Wände (oben, unten, links, rechts)
   - ColorRect für visuelle Wand-Darstellung
   - Camera2D + Label mit Test-Instruktionen
-- [ ] Ball-Test durchführen (manuell in Godot Editor):
-  - [ ] Ball bewegt sich konstant
-  - [ ] Ball reflektiert an Wänden
-  - [ ] Ball verlässt Screen → Signal wird emittiert
+- [x] ✅ Ball-Test durchgeführt (manuell in Godot Editor):
+  - [x] ✅ Ball bewegt sich konstant
+  - [x] ✅ Ball reflektiert an Wänden
+  - [x] ✅ Ball verlässt Screen → Signal wird emittiert
 
 **Akzeptanzkriterien:**
-- ⏸️ Ball bewegt sich smooth @ 60fps (Test ausstehend)
-- ⏸️ Reflexion funktioniert korrekt (Einfallswinkel = Ausfallswinkel) (Test ausstehend)
-- ⏸️ Out-of-Bounds wird erkannt (Test ausstehend)
-- ⏸️ Signals werden korrekt emittiert (Test ausstehend)
+- ✅ Ball bewegt sich smooth @ 60fps
+- ✅ Reflexion funktioniert korrekt (Einfallswinkel = Ausfallswinkel)
+- ✅ Out-of-Bounds wird erkannt
+- ✅ Signals werden korrekt emittiert
 
-**Nächster Schritt:** Manuelles Testen in Godot Editor mit BallTest.tscn
+**Status:** Ball-Entity vollständig funktionsfähig!
+**Nächster Schritt:** Launcher-System für 50-Ball-Sequencing (M1 fortsetzen)
 
 ---
 
