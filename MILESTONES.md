@@ -120,15 +120,15 @@
 - [x] ✅ Ball-Test durchgeführt (manuell in Godot Editor):
   - [x] ✅ Ball bewegt sich konstant
   - [x] ✅ Ball reflektiert an Wänden
-  - [x] ✅ Ball verlässt Screen → Signal wird emittiert
+  - [ ] ⏸️ Ball verlässt Screen → Signal wird emittiert (nicht testbar mit 4 Wänden)
 
 **Akzeptanzkriterien:**
 - ✅ Ball bewegt sich smooth @ 60fps
 - ✅ Reflexion funktioniert korrekt (Einfallswinkel = Ausfallswinkel)
-- ✅ Out-of-Bounds wird erkannt
-- ✅ Signals werden korrekt emittiert
+- ⏸️ Out-of-Bounds wird erkannt (Code implementiert, Test in Game-Scene)
+- ✅ Wall-Collision-Signal wird emittiert
 
-**Status:** Ball-Entity vollständig funktionsfähig!
+**Status:** Ball-Entity funktionsfähig (Out-of-Bounds wird in Game-Scene getestet)
 **Nächster Schritt:** Launcher-System für 50-Ball-Sequencing (M1 fortsetzen)
 
 ---
