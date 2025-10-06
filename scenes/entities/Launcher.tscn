@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5n7m9k3p2q8r"]
+
+[ext_resource type="Script" path="res://scripts/entities/Launcher.gd" id="1_launcher_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/launcher.svg" id="2_launcher_texture"]
+
+[node name="Launcher" type="Node2D"]
+script = ExtResource("1_launcher_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_launcher_texture")
+
+[node name="AimLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, -200)
+width = 3.0
+default_color = Color(1, 1, 0, 0.8)
+
+[node name="SpawnMarker" type="Marker2D" parent="."]
+position = Vector2(64, 0)

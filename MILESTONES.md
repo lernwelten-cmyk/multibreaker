@@ -8,10 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟢 M2 - Brick-System ✅ | 🔜 M3 - Launcher |
-| **Gesamt-Fortschritt** | 40% (2/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟡 M3 - Launcher & Aiming (In Arbeit) |
+| **Gesamt-Fortschritt** | 50% (2.5/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
-| **Geschätzte Restzeit** | 3-4 Wochen |
+| **Geschätzte Restzeit** | 2-3 Wochen |
 | **Letzte Aktualisierung** | 2025-01-06 |
 
 ---
@@ -211,62 +211,66 @@
 
 **Ziel:** Spieler kann Winkel wählen und Bälle abschießen
 **Geschätzte Zeit:** 8-12 Stunden
-**Status:** 🔴 Nicht begonnen
+**Status:** 🟡 **IN ARBEIT** (2025-01-06)
 
-### Launcher-Scene erstellen
+### Launcher-Scene erstellen ✅
 
-- [ ] `scenes/entities/Launcher.tscn` erstellen
+- [x] ✅ `scenes/entities/Launcher.tscn` erstellt
   - Root-Node: `Node2D`
   - Child: `Sprite2D` (Launcher-Grafik)
-  - Child: `Line2D` (Aim-Line für Visual-Feedback)
-  - Child: `Marker2D` (Ball-Spawn-Position)
-- [ ] Launcher-Sprite vorbereiten:
-  - [ ] Placeholder-Grafik erstellen (128x32 Pixel, Rampe)
-  - [ ] In `assets/sprites/launcher.png` speichern
+  - Child: `Line2D` (Aim-Line, gelb, width: 3)
+  - Child: `Marker2D` (Ball-Spawn-Position, offset: 64px)
+- [x] ✅ Launcher-Sprite vorbereitet:
+  - [x] ✅ Placeholder-Grafik erstellt (128x32 Pixel, Rampen-Form mit Gradient)
+  - [x] ✅ In `assets/sprites/launcher.svg` gespeichert
 
-### Launcher-Script
+### Launcher-Script ✅
 
-- [ ] `scripts/entities/Launcher.gd` erstellen
-- [ ] Mouse-Input implementieren:
-  - [ ] `_input(event)` für Mouse-Motion
-  - [ ] Maus-Position in Weltkoordinaten umrechnen
-  - [ ] Winkel berechnen (`atan2()`)
-- [ ] Aim-Line visualisieren:
-  - [ ] Line2D-Points aktualisieren
-  - [ ] Winkel-Limitierung (z.B. 30° - 150°)
-- [ ] Shoot-Input:
-  - [ ] Mouse-Click-Detection (`InputEventMouseButton`)
-  - [ ] Signal `shoot_requested(angle: float)` emittieren
+- [x] ✅ `scripts/entities/Launcher.gd` erstellt (145 Zeilen)
+- [x] ✅ Mouse-Input implementiert:
+  - [x] ✅ `_input(event)` für Mouse-Motion
+  - [x] ✅ Maus-Position in Weltkoordinaten umrechnen (get_global_mouse_position())
+  - [x] ✅ Winkel berechnen (atan2() via Vector2.angle())
+- [x] ✅ Aim-Line visualisiert:
+  - [x] ✅ Line2D-Points aktualisiert via _update_aim_line()
+  - [x] ✅ Winkel-Limitierung (30° - 150°, clamp())
+- [x] ✅ Shoot-Input:
+  - [x] ✅ Mouse-Click-Detection (InputEventMouseButton, MOUSE_BUTTON_LEFT)
+  - [x] ✅ Signal `shoot_requested(angle: float)` emittiert
 
-### Ball-Spawning-System
+### Ball-Spawning-System ✅
 
-- [ ] In `Launcher.gd`: Ball-Spawning implementieren
-  - [ ] Ball-Scene preloaden (`preload("res://scenes/entities/Ball.tscn")`)
-  - [ ] `spawn_ball(angle: float)` Funktion
-  - [ ] Ball instanziieren
-  - [ ] Velocity setzen (basierend auf Winkel)
-  - [ ] Ball zur Scene hinzufügen
-- [ ] Multi-Ball-Sequencing:
-  - [ ] `spawn_ball_sequence(count: int, angle: float)` Funktion
-  - [ ] Timer für Delay zwischen Bällen (0.1s)
-  - [ ] Counter für gespawnte Bälle
+- [x] ✅ In `Launcher.gd`: Ball-Spawning implementiert
+  - [x] ✅ Ball-Scene preloaded (const BALL_SCENE)
+  - [x] ✅ `_spawn_single_ball()` Funktion
+  - [x] ✅ Ball instanziiert via BALL_SCENE.instantiate()
+  - [x] ✅ Velocity gesetzt (ball.set_direction() mit Vector2.from_angle())
+  - [x] ✅ Ball zur Scene hinzugefügt (get_parent().add_child())
+- [x] ✅ Multi-Ball-Sequencing:
+  - [x] ✅ Timer für Delay zwischen Bällen (0.1s, spawn_timer)
+  - [x] ✅ Counter für gespawnte Bälle (spawned_balls)
+  - [x] ✅ Signal `all_balls_spawned` nach 50 Bällen
 
-### Test-Scene
+### Test-Scene erstellt ✅
 
-- [ ] `scenes/test/LauncherTest.tscn` erstellen
-  - Launcher-Instance
-  - Einige Bricks
-  - Wände
-- [ ] Launcher-Test:
+- [x] ✅ `scenes/test/LauncherTest.tscn` erstellt
+  - Launcher-Instance (Position: 960, 1000)
+  - 18 Brick-Instances (verschiedene HP)
+  - 3 Wände (oben, links, rechts)
+  - Camera2D + Instruktions-Label
+- [ ] Launcher-Test durchführen (manuell in Godot Editor):
   - [ ] Aim-Line folgt Maus
-  - [ ] Click spawnt Ball mit korrektem Winkel
-  - [ ] 50 Bälle werden sequenziell gespawnt
+  - [ ] Click spawnt Bälle mit korrektem Winkel
+  - [ ] 50 Bälle werden sequenziell gespawnt (0.1s Delay)
 
 **Akzeptanzkriterien:**
-- ✅ Aim-Line visualisiert Schussrichtung
-- ✅ Winkel ist auf sinnvollen Bereich limitiert
-- ✅ Click spawnt 50 Bälle mit 0.1s Delay
-- ✅ Bälle fliegen im gewählten Winkel
+- ⏸️ Aim-Line visualisiert Schussrichtung (Test ausstehend)
+- ⏸️ Winkel ist auf sinnvollen Bereich limitiert (30°-150°, Test ausstehend)
+- ⏸️ Click spawnt 50 Bälle mit 0.1s Delay (Test ausstehend)
+- ⏸️ Bälle fliegen im gewählten Winkel (Test ausstehend)
+
+**Status:** Launcher-System vollständig implementiert, manueller Test ausstehend
+**Nächster Schritt:** Manuelles Testen in Godot Editor mit LauncherTest.tscn
 
 ---
 
