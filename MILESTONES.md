@@ -8,10 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟡 M2 - Brick-System (In Arbeit) |
-| **Gesamt-Fortschritt** | 30% (2/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟢 M2 - Brick-System ✅ | 🔜 M3 - Launcher |
+| **Gesamt-Fortschritt** | 40% (2/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
-| **Geschätzte Restzeit** | 3-5 Wochen |
+| **Geschätzte Restzeit** | 3-4 Wochen |
 | **Letzte Aktualisierung** | 2025-01-06 |
 
 ---
@@ -137,7 +137,7 @@
 
 **Ziel:** Bricks können getroffen und zerstört werden
 **Geschätzte Zeit:** 6-10 Stunden
-**Status:** 🟡 **IN ARBEIT** (2025-01-06)
+**Status:** 🟢 **ABGESCHLOSSEN** (2025-01-06)
 
 ### Brick-Scene erstellen ✅
 
@@ -189,19 +189,21 @@
     - 3x HP=3 (300 Punkte, rot)
   - [x] ✅ Ball-Instance + 4 Wände
   - [x] ✅ Camera2D + Instruktions-Label
-- [ ] Brick-Test durchführen (manuell in Godot Editor):
-  - [ ] Ball trifft Brick → Brick nimmt Schaden
-  - [ ] Brick mit hp=1 wird zerstört
-  - [ ] Signal `destroyed` wird emittiert
+- [x] ✅ Brick-Test durchgeführt (manuell in Godot Editor):
+  - [x] ✅ Ball trifft Brick → Brick nimmt Schaden
+  - [x] ✅ Brick mit hp=1 wird zerstört
+  - [x] ✅ Signal `destroyed` wird emittiert
 
 **Akzeptanzkriterien:**
-- ⏸️ Ball kollidiert mit Bricks (Test ausstehend)
-- ⏸️ Bricks werden bei hp=0 zerstört (Test ausstehend)
-- ⏸️ Signal `destroyed` wird mit korrekten Daten emittiert (Test ausstehend)
-- ⏸️ Ball reflektiert korrekt an Brick-Oberfläche (Test ausstehend)
+- ✅ Ball kollidiert mit Bricks
+- ✅ Bricks werden bei hp=0 zerstört
+- ✅ Signal `destroyed` wird mit korrekten Daten emittiert
+- ✅ Ball reflektiert korrekt an Brick-Oberfläche
+- ✅ HP-basierte Visual-Feedback funktioniert (Alpha-Transparenz)
+- ✅ Multi-HP-Bricks (1-3 Treffer) funktionieren
 
-**Status:** Brick-System vollständig implementiert, manueller Test ausstehend
-**Nächster Schritt:** Manuelles Testen in Godot Editor mit BrickTest.tscn
+**Status:** 🟢 Meilenstein 2 ABGESCHLOSSEN!
+**Nächster Schritt:** M3 - Launcher & Aiming System
 
 ---
 
