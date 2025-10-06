@@ -85,37 +85,6 @@ Ein modernes Brick-Breaker-Spiel mit 50 Bällen, entwickelt mit Godot 4.4.
 
 ---
 
-## 📂 Projekt-Struktur
-
-```
-multiballbraker/
-├── scenes/              # Godot-Scenes (.tscn + .gd)
-│   ├── main/           # Root-Scene
-│   ├── game/           # Game-Scene
-│   ├── entities/       # Ball, Brick, Launcher
-│   ├── ui/             # HUD, Menüs
-│   └── levels/         # Level-Layouts
-│
-├── scripts/            # Pure GDScript
-│   ├── autoload/       # Singletons (GameManager, AudioManager, etc.)
-│   ├── systems/        # Wiederverwendbare Systeme
-│   └── utils/          # Helper-Funktionen
-│
-├── resources/          # Custom Resources (.tres)
-│   ├── level_data/
-│   └── brick_types/
-│
-├── assets/             # Art & Audio
-│   ├── sprites/
-│   ├── sounds/
-│   ├── fonts/
-│   └── particles/
-│
-└── tests/              # Unit-Tests (GUT)
-```
-
----
-
 ## 🛠️ Development
 
 ### Architektur-Prinzipien
@@ -131,10 +100,8 @@ Siehe [DEVELOPMENT.md](DEVELOPMENT.md) für vollständige Richtlinien.
 
 ### Dokumentation
 
-- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Architektur-Richtlinien & Code-Style
-- **[GODOT_PLAN.md](GODOT_PLAN.md)** - Vollständiger Tech-Stack-Plan
-- **[MILESTONES.md](MILESTONES.md)** - Entwicklungs-Roadmap
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Detaillierte System-Architektur
+- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Projekt-Struktur, Architektur-Richtlinien & Code-Style
+- **[MILESTONES.md](MILESTONES.md)** - Entwicklungs-Roadmap mit Task-Tracking
 
 ### Contribution
 

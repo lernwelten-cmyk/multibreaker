@@ -39,8 +39,7 @@
   - tests/unit
   - exports/{windows,web,linux}
 - [x] ✅ `README.md` erstellt
-- [x] ✅ `ARCHITECTURE.md` erstellt
-- [x] ✅ `DEVELOPMENT.md` für Godot angepasst
+- [x] ✅ `DEVELOPMENT.md` für Godot angepasst (konsolidiert mit ARCHITECTURE.md & GODOT_PLAN.md)
 
 ### Core-Dateien ✅
 
@@ -745,7 +744,7 @@
 - [ ] "Create new project" klicken
 - [ ] Projekt-Details:
   - [ ] Title: "Multi-Ball Breaker"
-  - [ ] Description: (aus GODOT_PLAN.md kopieren)
+  - [ ] Description: "Ein modernes Brick-Breaker-Spiel mit 50 Bällen, Golf-Par-Scoring und präziser Spiegelreflexions-Physik"
   - [ ] Genre: Action, Puzzle
   - [ ] Tags: brick-breaker, arcade, casual
 - [ ] Uploads:

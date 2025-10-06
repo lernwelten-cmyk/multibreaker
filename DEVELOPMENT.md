@@ -460,6 +460,29 @@ Soll ich diese auch anpassen oder nur [Ursprungsdatei]?"
 
 ## 🎮 Godot-Spezifische Best Practices
 
+### Scene-Tree-Hierarchie
+
+**Empfohlene Struktur für Game-Scene:**
+```
+Game (Node2D)
+├── Background (Sprite2D)
+├── Launcher (Node2D)
+│   ├── LauncherSprite (Sprite2D)
+│   └── AimLine (Line2D)
+├── BallContainer (Node2D)
+│   └── [Ball instances dynamically spawned]
+├── BrickContainer (Node2D)
+│   └── [Brick instances from level]
+├── Camera2D
+└── UI (CanvasLayer)
+    └── HUD
+```
+
+**Wichtig:**
+- Container-Nodes für dynamische Entities (Balls, Bricks)
+- CanvasLayer für UI (damit es über allem rendert)
+- Klare Hierarchie = Einfaches Debugging
+
 ### Scene-Instanziierung
 
 ```gdscript
@@ -528,15 +551,76 @@ func _ready():
         $Sprite2D.modulate = brick_type.color
 ```
 
+**Vorteile:**
+- ✅ Typsicher (keine String-Keys wie in JSON)
+- ✅ Inspector-editierbar
+- ✅ Wiederverwendbar über Scenes
+
+### Game-Loop-Flow (Beispiel)
+
+**Typischer Zyklus für einen Schuss:**
+```
+User-Click
+  → Launcher.shoot_requested.emit(angle)
+  → Game._on_shoot_requested(angle)
+  → GameManager.increment_attempts()
+  → Launcher.spawn_ball_sequence(50, angle)
+  → Ball-Instances spawnen (Timer-basiert)
+  → Ball._physics_process(delta)
+  → Ball-Collision mit Brick
+  → Brick.take_damage(1)
+  → Brick.destroyed.emit(points, pos)
+  → GameManager.add_score(points)
+  → HUD._on_score_changed(score)
+```
+
+**Wichtig:** Alles über Signals! Keine direkten Funktionsaufrufe zwischen Features.
+
+### Performance-Patterns
+
+**Object-Pooling für 50 Bälle:**
+```gdscript
+# ✅ Gut: Wiederverwendbarer Ball-Pool
+const BALL_SCENE = preload("res://scenes/entities/Ball.tscn")
+var ball_pool: Array[CharacterBody2D] = []
+
+func _ready():
+    # Pre-instanziieren
+    for i in range(50):
+        var ball = BALL_SCENE.instantiate()
+        ball.process_mode = Node.PROCESS_MODE_DISABLED
+        ball_pool.append(ball)
+        add_child(ball)
+
+func spawn_ball(angle: float):
+    var ball = ball_pool.pop_front()
+    ball.process_mode = Node.PROCESS_MODE_INHERIT
+    ball.shoot(angle)
+
+    # Zurück in Pool nach Destruction
+    ball.out_of_bounds.connect(func(): _return_to_pool(ball))
+```
+
+**Collision-Optimization:**
+```gdscript
+# In project.godot: Layer-Separation
+# Layer 1: Balls
+# Layer 2: Bricks
+# Layer 3: Walls
+
+# Ball kollidiert nur mit Layer 2+3
+# → Weniger Collision-Checks
+```
+
 ---
 
 ## 📚 Zusätzliche Ressourcen
 
-- Siehe `README.md` für Setup-Anleitung
-- Siehe `ARCHITECTURE.md` für detaillierte System-Architektur
-- Siehe `GODOT_PLAN.md` für vollständigen Tech-Stack-Plan
-- Siehe `MILESTONES.md` für Entwicklungs-Roadmap
-- Godot Docs: https://docs.godotengine.org/
+- **README.md** - Projekt-Übersicht & Quick-Start
+- **MILESTONES.md** - Entwicklungs-Roadmap & Task-Tracking
+- **Godot Docs** - https://docs.godotengine.org/
+- **GDScript Style-Guide** - https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
+- **Signal-Pattern** - https://docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html
 
 ---
 
