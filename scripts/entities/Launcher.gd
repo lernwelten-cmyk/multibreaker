@@ -123,8 +123,15 @@ func _spawn_single_ball() -> void:
 	var direction: Vector2 = Vector2.from_angle(current_angle)
 	ball.set_direction(direction)
 
-	# Ball zur Scene-Tree hinzufügen (Parent = Launcher's Parent)
-	get_parent().add_child(ball)
+	# Ball zur Scene-Tree hinzufügen
+	# Versuche BallContainer im Parent zu finden, sonst Parent direkt
+	var parent_node: Node = get_parent()
+	var ball_container: Node = parent_node.get_node_or_null("BallContainer")
+
+	if ball_container:
+		ball_container.add_child(ball)
+	else:
+		parent_node.add_child(ball)
 
 	spawned_balls += 1
 
