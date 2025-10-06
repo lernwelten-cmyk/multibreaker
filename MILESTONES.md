@@ -8,10 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟢 M3 - Launcher & Aiming ✅ | 🔜 M4 - Game-Manager |
-| **Gesamt-Fortschritt** | 60% (3/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟡 M4 - Game-Manager (In Arbeit) |
+| **Gesamt-Fortschritt** | 70% (3.5/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
-| **Geschätzte Restzeit** | 2-3 Wochen |
+| **Geschätzte Restzeit** | 1-2 Wochen |
 | **Letzte Aktualisierung** | 2025-01-06 |
 
 ---
@@ -280,11 +280,75 @@
 
 **Ziel:** Spiellogik orchestriert, Score-Tracking funktioniert
 **Geschätzte Zeit:** 10-14 Stunden
-**Status:** 🔴 Nicht begonnen
+**Status:** 🟡 **IN ARBEIT** (2025-01-06)
 
-### GameManager Autoload
+**HINWEIS:** GameManager, AudioManager, ScoreManager, SaveLoad wurden bereits in M0 erstellt.
+M4 fokussiert sich auf Game-Scene-Integration und Core-Loop-Orchestration.
 
-- [ ] `scripts/autoload/GameManager.gd` erstellen
+### Game-Scene erstellt ✅
+
+- [x] ✅ `scenes/game/Game.tscn` erstellt (22 Bricks, Launcher, Wände, HUD)
+- [x] ✅ `scripts/game/Game.gd` erstellt (143 Zeilen)
+  - [x] ✅ Ball/Brick-Container-Management
+  - [x] ✅ Launcher-Signal-Integration
+  - [x] ✅ Score-Tracking via GameManager
+  - [x] ✅ Level-Completion-Detection
+  - [x] ✅ Highscore-Speicherung via ScoreManager
+
+### HUD erstellt ✅
+
+- [x] ✅ `scenes/ui/HUD.tscn` erstellt
+- [x] ✅ `scripts/ui/HUD.gd` erstellt (47 Zeilen)
+  - [x] ✅ Real-time Score/Attempts Display
+  - [x] ✅ GameManager-Signal-Integration
+  - [x] ✅ Highscore-Anzeige
+
+### Core-Loop implementiert ✅
+
+- [x] ✅ Player-Input → Launcher → Game-Orchestration
+- [x] ✅ Ball-Spawning mit Tracking
+- [x] ✅ Brick-Destruction → Score-Update
+- [x] ✅ Out-of-Bounds Detection
+- [x] ✅ Level-Complete-Check
+- [x] ✅ Highscore-Persistierung
+
+### M0-Autoloads (bereits vorhanden)
+
+- [x] ✅ GameManager.gd (State, Signals, Level-Management)
+- [x] ✅ AudioManager.gd (SFX, Music-Player)
+- [x] ✅ ScoreManager.gd (Highscore-Persistence)
+- [x] ✅ SaveLoad.gd (JSON-Serialization)
+
+### Test ausstehend
+
+- [ ] Game-Test durchführen (manuell in Godot Editor):
+  - [ ] Score-Tracking funktioniert
+  - [ ] Attempts-Counter funktioniert
+  - [ ] Level-Completion wird erkannt
+  - [ ] Highscore wird gespeichert
+  - [ ] HUD aktualisiert sich korrekt
+
+**Akzeptanzkriterien:**
+- ⏸️ GameManager tracked Score & Attempts korrekt (Test ausstehend)
+- ⏸️ Brick-Destruction erhöht Score (Test ausstehend)
+- ⏸️ Level-Complete wird erkannt (alle Bricks zerstört, Test ausstehend)
+- ⏸️ HUD aktualisiert sich in Echtzeit (Test ausstehend)
+- ⏸️ Highscore wird lokal gespeichert (Test ausstehend)
+
+**Status:** Game-Loop vollständig implementiert, manueller Test ausstehend
+**Nächster Schritt:** Manuelles Testen in Godot Editor mit Game.tscn
+
+---
+
+## 🏁 Meilenstein 5: UI-System (HUD & Menus)
+
+**HINWEIS:** HUD wurde bereits in M4 implementiert. M5 fokussiert sich auf Menü-System.
+
+### OLD M4 CONTENT (ARCHIVED)
+
+### GameManager Autoload (M0)
+
+- [x] ✅ `scripts/autoload/GameManager.gd` erstellt
 - [ ] State-Variables:
   - [ ] `var current_level: int = 1`
   - [ ] `var attempts: int = 0`
