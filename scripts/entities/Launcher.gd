@@ -13,17 +13,17 @@ const BALL_SCENE: PackedScene = preload("res://scenes/entities/Ball.tscn")
 ## Delay zwischen Ball-Spawns in Sekunden
 @export var spawn_delay: float = 0.1
 
-## Minimaler Winkel in Grad (0° = rechts)
-@export var min_angle: float = 30.0
+## Minimaler Winkel in Grad (0° = rechts, -90° = oben, 90° = unten)
+@export var min_angle: float = -150.0
 
 ## Maximaler Winkel in Grad
-@export var max_angle: float = 150.0
+@export var max_angle: float = -30.0
 
 ## Länge der Aim-Line in Pixeln
 @export var aim_line_length: float = 200.0
 
 ## Aktueller Zielwinkel in Radians
-var current_angle: float = PI / 2  # 90° default
+var current_angle: float = -PI / 2  # -90° default (nach oben)
 
 ## Ist Launcher aktiv (kann schießen)?
 var is_active: bool = true
@@ -71,7 +71,9 @@ func _input(event: InputEvent) -> void:
 		var angle_deg: float = rad_to_deg(angle_rad)
 
 		# Winkel auf erlaubten Bereich limitieren
+		# Für nach-oben-Schießen: -150° (links-oben) bis -30° (rechts-oben)
 		angle_deg = clamp(angle_deg, min_angle, max_angle)
+
 		current_angle = deg_to_rad(angle_deg)
 
 		_update_aim_line()
