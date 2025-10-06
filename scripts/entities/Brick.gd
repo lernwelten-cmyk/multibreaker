@@ -42,10 +42,10 @@ func _destroy() -> void:
 
 func _update_visual() -> void:
 	"""Aktualisiert visuelle Darstellung basierend auf HP"""
-	var sprite := get_node_or_null("Sprite2D")
-	if sprite and sprite is Sprite2D:
+	var sprite: Sprite2D = get_node_or_null("Sprite2D")
+	if sprite:
 		# HP-basierte Transparenz: Je weniger HP, desto transparenter
-		var alpha := clamp(float(hp) / 3.0, 0.4, 1.0)
+		var alpha: float = clamp(float(hp) / 3.0, 0.4, 1.0)
 		sprite.modulate = Color(brick_color.r, brick_color.g, brick_color.b, alpha)
 
 func get_hp() -> int:
