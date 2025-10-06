@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5h8k3n2p9q1w"]
+[gd_scene load_steps=3 format=3 uid="uid://b5h8k3n2qaq1w"]
 
-[ext_resource type="PackedScene" uid="uid://c8v3q2x1m5p7r" path="res://scenes/entities/Ball.tscn" id="1_ball_scene"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Ball.tscn" id="1_ball_scene"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
 size = Vector2(2000, 100)

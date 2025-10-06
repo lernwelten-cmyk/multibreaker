@@ -8,10 +8,10 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟡 M1 - Ball-Physics (In Arbeit) |
-| **Gesamt-Fortschritt** | 20% (1.5/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟡 M2 - Brick-System (In Arbeit) |
+| **Gesamt-Fortschritt** | 30% (2/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
-| **Geschätzte Restzeit** | 4-6 Wochen |
+| **Geschätzte Restzeit** | 3-5 Wochen |
 | **Letzte Aktualisierung** | 2025-01-06 |
 
 ---
@@ -137,61 +137,71 @@
 
 **Ziel:** Bricks können getroffen und zerstört werden
 **Geschätzte Zeit:** 6-10 Stunden
-**Status:** 🔴 Nicht begonnen
+**Status:** 🟡 **IN ARBEIT** (2025-01-06)
 
-### Brick-Scene erstellen
+### Brick-Scene erstellen ✅
 
-- [ ] `scenes/entities/Brick.tscn` erstellen
-  - Root-Node: `StaticBody2D`
+- [x] ✅ `scenes/entities/Brick.tscn` erstellt
+  - Root-Node: `StaticBody2D` (collision_layer: 4, collision_mask: 0)
   - Child: `Sprite2D` (Brick-Grafik)
-  - Child: `CollisionShape2D` (Rectangle-Shape)
-- [ ] Brick-Sprite vorbereiten:
-  - [ ] Placeholder-Grafik erstellen (64x32 Pixel, farbiges Rechteck)
-  - [ ] In `assets/sprites/brick_1hit.png` speichern
-  - [ ] Sprite2D-Texture zuweisen
-- [ ] CollisionShape2D konfigurieren:
+  - Child: `CollisionShape2D` (RectangleShape2D, Size: 64x32)
+- [x] ✅ Brick-Sprite vorbereitet:
+  - [x] ✅ Placeholder-Grafik erstellt (64x32 Pixel, blaues Rechteck)
+  - [x] ✅ In `assets/sprites/brick_1hit.svg` gespeichert
+  - [x] ✅ Sprite2D-Texture zugewiesen
+- [x] ✅ CollisionShape2D konfiguriert:
   - Shape: RectangleShape2D
   - Size: Vector2(64, 32)
-- [ ] Brick zu Group "bricks" hinzufügen
+- [x] ✅ Brick zu Group "brick" hinzugefügt (im Script via add_to_group())
 
-### Brick-Script
+### Brick-Script ✅
 
-- [ ] `scripts/entities/Brick.gd` erstellen
-- [ ] Brick-Properties:
-  - [ ] `@export var hp: int = 1`
-  - [ ] `@export var points: int = 100`
-- [ ] Signals definieren:
-  - [ ] `signal destroyed(points: int, position: Vector2)`
-- [ ] Damage-System implementieren:
-  - [ ] `take_damage(amount: int)` Funktion
-  - [ ] HP-Decrement
-  - [ ] Visual-Feedback (Color-Change oder Shake)
-- [ ] Destruction-Logic:
-  - [ ] `hp <= 0` Check
-  - [ ] Signal `destroyed` emittieren
-  - [ ] `queue_free()` aufrufen
+- [x] ✅ `scripts/entities/Brick.gd` erstellt (63 Zeilen)
+- [x] ✅ Brick-Properties:
+  - [x] ✅ `@export var hp: int = 1`
+  - [x] ✅ `@export var points: int = 100`
+  - [x] ✅ `@export var brick_color: Color` (für visuelle HP-Anzeige)
+- [x] ✅ Signals definiert:
+  - [x] ✅ `signal destroyed(points: int, brick_position: Vector2)`
+  - [x] ✅ `signal damaged(remaining_hp: int)`
+- [x] ✅ Damage-System implementiert:
+  - [x] ✅ `take_damage(amount: int)` Funktion
+  - [x] ✅ HP-Decrement
+  - [x] ✅ Visual-Feedback (Alpha-basierte Transparenz je nach HP)
+- [x] ✅ Destruction-Logic:
+  - [x] ✅ `hp <= 0` Check
+  - [x] ✅ Signal `destroyed` emittieren
+  - [x] ✅ `queue_free()` aufrufen
 
-### Ball ↔ Brick Collision
+### Ball ↔ Brick Collision ✅
 
-- [ ] In `Ball.gd`: Collision-Check erweitern
-  - [ ] Collider-Type prüfen (`is_in_group("bricks")`)
-  - [ ] Signal `collided_with_brick` emittieren
-  - [ ] `collider.take_damage(1)` aufrufen
+- [x] ✅ In `Ball.gd`: Collision-Check erweitert
+  - [x] ✅ Collider-Type prüfen (`is_in_group("brick")`)
+  - [x] ✅ Signal `collided_with_brick` emittieren
+  - [x] ✅ `collider.take_damage(1)` aufrufen (mit has_method Check)
 
-### Test-Scene erweitern
+### Test-Scene erstellt ✅
 
-- [ ] `BallTest.tscn` erweitern:
-  - [ ] 5-10 Brick-Instances platzieren
-  - [ ] Ball-Test durchführen:
-    - [ ] Ball trifft Brick → Brick nimmt Schaden
-    - [ ] Brick mit hp=1 wird zerstört
-    - [ ] Signal `destroyed` wird emittiert
+- [x] ✅ `scenes/test/BrickTest.tscn` erstellt:
+  - [x] ✅ 12 Brick-Instances platziert (verschiedene HP-Werte)
+    - 5x HP=1 (100 Punkte, weiß)
+    - 4x HP=2 (200 Punkte, blau)
+    - 3x HP=3 (300 Punkte, rot)
+  - [x] ✅ Ball-Instance + 4 Wände
+  - [x] ✅ Camera2D + Instruktions-Label
+- [ ] Brick-Test durchführen (manuell in Godot Editor):
+  - [ ] Ball trifft Brick → Brick nimmt Schaden
+  - [ ] Brick mit hp=1 wird zerstört
+  - [ ] Signal `destroyed` wird emittiert
 
 **Akzeptanzkriterien:**
-- ✅ Ball kollidiert mit Bricks
-- ✅ Bricks werden bei hp=0 zerstört
-- ✅ Signal `destroyed` wird mit korrekten Daten emittiert
-- ✅ Ball reflektiert korrekt an Brick-Oberfläche
+- ⏸️ Ball kollidiert mit Bricks (Test ausstehend)
+- ⏸️ Bricks werden bei hp=0 zerstört (Test ausstehend)
+- ⏸️ Signal `destroyed` wird mit korrekten Daten emittiert (Test ausstehend)
+- ⏸️ Ball reflektiert korrekt an Brick-Oberfläche (Test ausstehend)
+
+**Status:** Brick-System vollständig implementiert, manueller Test ausstehend
+**Nächster Schritt:** Manuelles Testen in Godot Editor mit BrickTest.tscn
 
 ---
 

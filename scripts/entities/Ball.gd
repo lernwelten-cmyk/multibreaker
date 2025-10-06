@@ -53,9 +53,12 @@ func _handle_collision(collision: KinematicCollision2D) -> void:
 	# Spiegelreflexion: Velocity an Normal-Vektor reflektieren
 	velocity = velocity.bounce(collision.get_normal())
 
-	# Signal emittieren basierend auf Collider-Typ
+	# Signal emittieren und Damage anwenden basierend auf Collider-Typ
 	if collider.is_in_group("brick"):
 		collided_with_brick.emit(collider)
+		# Brick Damage anwenden (falls take_damage Methode existiert)
+		if collider.has_method("take_damage"):
+			collider.take_damage(1)
 	elif collider.is_in_group("wall"):
 		collided_with_wall.emit()
 
