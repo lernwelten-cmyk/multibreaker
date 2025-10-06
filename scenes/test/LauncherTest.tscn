@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d8w5k2n9m3p6q"]
+[gd_scene load_steps=4 format=3 uid="uid://cqcfyovuckksx"]
 
-[ext_resource type="PackedScene" uid="uid://c5n7m9k3p2q8r" path="res://scenes/entities/Launcher.tscn" id="1_launcher_scene"]
-[ext_resource type="PackedScene" uid="uid://d7w9x4k2n8m5q" path="res://scenes/entities/Brick.tscn" id="2_brick_scene"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Launcher.tscn" id="1_launcher_scene"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Brick.tscn" id="2_brick_scene"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
 size = Vector2(2000, 100)

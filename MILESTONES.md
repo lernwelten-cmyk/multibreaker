@@ -8,8 +8,8 @@
 
 | Metric | Status |
 |--------|--------|
-| **Aktueller Meilenstein** | 🟡 M3 - Launcher & Aiming (In Arbeit) |
-| **Gesamt-Fortschritt** | 50% (2.5/10 Meilensteine) |
+| **Aktueller Meilenstein** | 🟢 M3 - Launcher & Aiming ✅ | 🔜 M4 - Game-Manager |
+| **Gesamt-Fortschritt** | 60% (3/10 Meilensteine) |
 | **Phase** | Phase 1 - MVP Development |
 | **Geschätzte Restzeit** | 2-3 Wochen |
 | **Letzte Aktualisierung** | 2025-01-06 |
@@ -211,7 +211,7 @@
 
 **Ziel:** Spieler kann Winkel wählen und Bälle abschießen
 **Geschätzte Zeit:** 8-12 Stunden
-**Status:** 🟡 **IN ARBEIT** (2025-01-06)
+**Status:** 🟢 **ABGESCHLOSSEN** (2025-01-06)
 
 ### Launcher-Scene erstellen ✅
 
@@ -258,19 +258,21 @@
   - 18 Brick-Instances (verschiedene HP)
   - 3 Wände (oben, links, rechts)
   - Camera2D + Instruktions-Label
-- [ ] Launcher-Test durchführen (manuell in Godot Editor):
-  - [ ] Aim-Line folgt Maus
-  - [ ] Click spawnt Bälle mit korrektem Winkel
-  - [ ] 50 Bälle werden sequenziell gespawnt (0.1s Delay)
+- [x] ✅ Launcher-Test durchgeführt (manuell in Godot Editor):
+  - [x] ✅ Aim-Line folgt Maus
+  - [x] ✅ Click spawnt Bälle mit korrektem Winkel
+  - [x] ✅ 50 Bälle werden sequenziell gespawnt (0.1s Delay)
 
 **Akzeptanzkriterien:**
-- ⏸️ Aim-Line visualisiert Schussrichtung (Test ausstehend)
-- ⏸️ Winkel ist auf sinnvollen Bereich limitiert (30°-150°, Test ausstehend)
-- ⏸️ Click spawnt 50 Bälle mit 0.1s Delay (Test ausstehend)
-- ⏸️ Bälle fliegen im gewählten Winkel (Test ausstehend)
+- ✅ Aim-Line visualisiert Schussrichtung korrekt (gelbe Linie)
+- ✅ Winkel ist auf sinnvollen Bereich limitiert (-150° bis -30°, nach oben)
+- ✅ Click spawnt 50 Bälle mit 0.1s Delay
+- ✅ Bälle fliegen im gewählten Winkel
+- ✅ Bälle zerstören Bricks korrekt
+- ✅ Launcher deaktiviert sich während Sequenz
 
-**Status:** Launcher-System vollständig implementiert, manueller Test ausstehend
-**Nächster Schritt:** Manuelles Testen in Godot Editor mit LauncherTest.tscn
+**Status:** 🟢 Meilenstein 3 ABGESCHLOSSEN!
+**Nächster Schritt:** M4 - Game-Manager & Core-Loop Integration
 
 ---
 
